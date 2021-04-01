@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  * in JavaFX. The first method adds an EventFilter and specifies the type of event,
  * the second adds the specific event to the canvas and uses an inner class to code the handler,
  * the third uses a Lambda expression to code the handler.
- * May 14, 2018
+ * March 2021
  * 
  * @author Christina Kemp
  *
@@ -67,6 +67,7 @@ public class JavaFXKeyEventExample extends Application{
 		
 		// method 3: set the event using the matching method, use Lambda Expression to code handler
 		// KEY_PRESSED event
+		// you can also use canvas.setOnKeyTyped and canvas.setOnKeyReleased
 		/**
 		 * Prints "A key was pressed" to the system console when the letter 'A' is pressed.
 		 */

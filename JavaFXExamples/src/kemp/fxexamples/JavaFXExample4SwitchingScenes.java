@@ -9,10 +9,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
- * ExampleClass.java
- * This program shows some output examples
+ * Example class for switching scenes in JavaFX
+ * This program shows how to create two basic scenes, one in the start
+ * method, one in its own method. And have the scenes switch when a button
+ * is pressed.
+ * Updated March 2021
  * @author Christina Kemp
- * Sept 13, 2016
  *
  */
 public class JavaFXExample4SwitchingScenes extends Application{
@@ -41,11 +43,16 @@ public class JavaFXExample4SwitchingScenes extends Application{
 		//use method to create layout of scene 2
 		scene2 = scene2(primaryStage);
 		
-		primaryStage.setScene(scene1);
+		primaryStage.setScene(scene2);
 		primaryStage.show();
 		
 	}
 
+	/**
+	 * Create layout for scene 2
+	 * @param stage 
+	 * @return
+	 */
 	public Scene scene2(Stage stage) {
 		Label label2 = new Label("Go back to scene 1");
 		Button button2 = new Button("Click to go back");
