@@ -1,3 +1,3 @@
 # ICS4UExampleCode
 
-Here is some sample code for JavaFX and mouse and key listeners
+Here is some sample code and starter code for the grade 12 course.
