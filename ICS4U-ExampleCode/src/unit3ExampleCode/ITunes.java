@@ -20,11 +20,13 @@ public class ITunes {
 	/**
 	 * Entry point to the program
 	 * @param args - unused
+	 * @throws InterruptedException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
+		
+
 		int input = 0;
 		Mp3Record song = null;
-		boolean flag = false;
 		
 	
 		do {
@@ -33,27 +35,14 @@ public class ITunes {
 			System.out.println("2 - Print Record");
 			System.out.println("10 - Quit");
 			
-			//checks input for numerical values
-			do {
-				try {
-					flag = false;
-					input = sc.nextInt();
-				}catch(InputMismatchException e) {
-					flag = true;
-					System.err.println(e.getMessage());
-					System.out.println("Please try again!");
-				}
-			}while(flag);
-			
-			
-			
+			input = sc.nextInt();
 			sc.nextLine(); //reads the enter after the number from nextInt()
 			
 			
 			if(input == 1) {
 				song = createRecord();
 			}else if (input == 2) {
-				printRecord(song);
+				System.out.println(song.toString());
 			}
 			else if(input != 10) {
 				System.out.println("That option is invalid, please try again.");
@@ -61,14 +50,6 @@ public class ITunes {
 			
 		}while(input != 10);
 
-	}
-
-	/**
-	 * Prints out the given MP3 record's Song and Artist on a single line
-	 * @param r - the MP3 record to print
-	 */
-	public static void printRecord(Mp3Record r) {
-		System.out.println("Song: " + r.getName() + "\t\tArtist: " + r.getArtist());
 	}
 
 	
@@ -80,16 +61,29 @@ public class ITunes {
 	 */
 	public static Mp3Record createRecord() {
 		
-		Mp3Record r = new Mp3Record();
+		Mp3Record r = new Mp3Record("Yesterday", "The Beatles");
 		
-		r.setName("Yesterday");
-		r.setArtist("Beatles");
+		System.out.println("What is the length of the song?");
+		double length = Double.parseDouble(sc.nextLine());
+		r.setLength(length);
+
 		r.setComposer("Paul McCartney");
-		r.setLength(2.05);
+		
 		r.setYear(1965);
 		
 		return r;
 
 	}
 
+	
+	//method 2 to validate input - check if there is an int before scanning the int
+//	boolean flag;
+//	do {
+//		flag = false;
+//		if(!sc.hasNextInt()) {
+//			System.out.println("Please enter a number");
+//			sc.next();
+//			flag = true;
+//		}
+//	}while(flag);
 }

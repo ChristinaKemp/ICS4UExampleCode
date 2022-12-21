@@ -7,11 +7,30 @@ package unit3ExampleCode;
  * @version v.2 October, 2022
  *
  */
-public class Mp3Record {
+public class Mp3Record implements Comparable<Mp3Record> {
 
 	private String name, artist, composer, album;
 	private double length;
 	private int year;
+	
+	public Mp3Record() {
+		this.name = "";
+		this.artist = "";
+		this.composer = "";
+		this.album = "";
+		this.length = 0;
+		this.year = 0;
+	}
+	
+	
+	public Mp3Record(String name, String artist) {
+		this.name = name;
+		this.artist = artist;
+		this.composer = "";
+		this.album = "";
+		this.length = 0;
+		this.year = 0;
+	}
 
 	/**
 	 * Gets the name of the MP3 track.
@@ -96,13 +115,35 @@ public class Mp3Record {
 	}
 	
 	/**
+	 * @return the album
+	 */
+	public String getAlbum() {
+		return album;
+	}
+
+	/**
+	 * @param album the album to set
+	 */
+	public void setAlbum(String album) {
+		this.album = album;
+	}
+
+	/**
 	 * Returns a String object representing this Mp3Record's value. 
 	 * The result is a string consisting on the name of the song and
 	 * the artist, separated by a comma.
 	 */
 	public String toString() {
-		return name + ", " + artist;
+		return name + ", " + artist + "\n"
+				+ length + "\n";
 	}
+
+
+	@Override
+	public int compareTo(Mp3Record o) {
+
+	}
+
 
 	
 }
