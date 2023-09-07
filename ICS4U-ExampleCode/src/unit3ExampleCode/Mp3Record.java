@@ -139,9 +139,21 @@ public class Mp3Record implements Comparable<Mp3Record> {
 	}
 
 
+	/**
+	 * Sorts by artist first, then by song title
+	 * @param r The mp3Record to be sorted
+	 * @return the value representing which mp3Record comes before/after the 
+	 */
 	@Override
-	public int compareTo(Mp3Record o) {
+	public int compareTo(Mp3Record r) {
+		if(this.artist.compareTo(r.getArtist()) == 0) {
+			return this.name.compareTo(r.getName());			
+		}
+		else
+			return this.artist.compareTo(r.getArtist());
 
+
+			
 	}
 
 

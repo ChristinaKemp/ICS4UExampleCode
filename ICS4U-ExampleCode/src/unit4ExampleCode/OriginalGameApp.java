@@ -1,5 +1,6 @@
 package unit4ExampleCode;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -70,21 +71,18 @@ public class OriginalGameApp extends Application{
 		}
 
 		//creates a thread to run the game
-		Thread game = new Thread(new Runnable() {
-			/**
-			 * Repaints the canvas periodically.
-			 */
+		AnimationTimer game = new AnimationTimer(){
 			@Override
-			public void run() {
-				while (true) {
-					draw(gc);
-					try {
-						Thread.sleep(pauseDuration);
-					} catch (InterruptedException e) {
-					}
+			public void handle(long timestamp) {
+				
+				// Repaints the canvas periodically.
+				draw(gc);
+				try {
+					Thread.sleep(pauseDuration);
+				} catch (InterruptedException e) {
 				}
 			}
-		});
+		};
 
 		mainPane.getChildren().add(canvas);
 		Scene scene = new Scene(mainPane);

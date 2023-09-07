@@ -125,7 +125,7 @@ public class PaintGame extends Application {
 	
 	
 	/**
-	 * Enrty point to Application
+	 * Entry point to Application
 	 * @param args - unused
 	 */
 	public static void main(String[] args) {
