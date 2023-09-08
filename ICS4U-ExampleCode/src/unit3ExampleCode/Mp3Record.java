@@ -9,43 +9,50 @@ package unit3ExampleCode;
  */
 public class Mp3Record implements Comparable<Mp3Record> {
 
-	private String name, artist, composer, album;
+	private String songTitle, artist, composer, album;
 	private double length;
 	private int year;
 	
+	/**
+	 * Creates a new Mp3Record with empty fields.
+	 */
 	public Mp3Record() {
-		this.name = "";
-		this.artist = "";
-		this.composer = "";
-		this.album = "";
-		this.length = 0;
-		this.year = 0;
+		this.setSongTitle("");
+		this.setArtist("");
+		this.setComposer("");
+		this.setAlbum("");
+		this.setLength(0);
+		this.setYear(0);
 	}
 	
-	
-	public Mp3Record(String name, String artist) {
-		this.name = name;
-		this.artist = artist;
-		this.composer = "";
-		this.album = "";
-		this.length = 0;
-		this.year = 0;
+	/**
+	 * Creates a new MP3Record with the given name and artist
+	 * @param songTitle
+	 * @param artist
+	 */
+	public Mp3Record(String songTitle, String artist) {
+		this.setSongTitle(songTitle);
+		this.setArtist(artist);
+		this.setComposer("");
+		this.setAlbum("");
+		this.setLength(0);
+		this.setYear(0);
 	}
 
 	/**
-	 * Gets the name of the MP3 track.
+	 * Gets the song title of the MP3 track.
 	 * @return Returns the name of the MP3 track.
 	 */
-	public String getName() {
-		return name;
+	public String getSongTitle() {
+		return songTitle;
 	}
 	
 	/**
-	 * Changes the name of the MP3. 
-	 * @param name - The string to set as the name of the track. 
+	 * Changes the song title of the MP3. 
+	 * @param songTitle - The string to set as the title of the track. 
 	 */
-	public void setName(String name) {		
-		this.name = name;
+	public void setSongTitle(String songTitle) {		
+		this.songTitle = songTitle;
 	}
 	
 	/**
@@ -134,7 +141,7 @@ public class Mp3Record implements Comparable<Mp3Record> {
 	 * the artist, separated by a comma.
 	 */
 	public String toString() {
-		return name + ", " + artist + "\n"
+		return songTitle + ", " + artist + "\n"
 				+ length + "\n";
 	}
 
@@ -147,7 +154,7 @@ public class Mp3Record implements Comparable<Mp3Record> {
 	@Override
 	public int compareTo(Mp3Record r) {
 		if(this.artist.compareTo(r.getArtist()) == 0) {
-			return this.name.compareTo(r.getName());			
+			return this.songTitle.compareTo(r.getSongTitle());			
 		}
 		else
 			return this.artist.compareTo(r.getArtist());
