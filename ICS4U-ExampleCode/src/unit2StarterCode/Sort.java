@@ -84,8 +84,8 @@ public class Sort {
 	}
 	
 	/**
-	 * This is a method that is used to recursively sort the given array between
-	 * the start and end indices
+	 * This is a method that is used to recursively sort the given array using quick sort
+	 * between the start and end indices
 	 * @param arr The array to be sorted
 	 * @param start The first index of the array to be sorted
 	 * @param end The last index of the array to be sorted
@@ -120,8 +120,8 @@ public class Sort {
 	}
 	
 	/**
-	 * This is a method that is used to recursively sort the given array between
-	 * the start and end indices
+	 * This is a method that is used to recursively sort the given array using merge sort
+	 * between the start and end indices
 	 * @param arr The array to be sorted
 	 * @param start The first index of the array to be sorted
 	 * @param end The last index of the array to be sorted
@@ -135,7 +135,7 @@ public class Sort {
 	}
 	
 	/**
-	 * This method merges two parts of an array that are currently in order into 
+	 * This method merges two parts of an array that are each in order into 
 	 * one array that is in order
 	 * @param arr The array to be sorted
 	 * @param start The first index of the array to be sorted

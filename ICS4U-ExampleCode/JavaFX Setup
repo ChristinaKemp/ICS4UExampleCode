@@ -1,0 +1,38 @@
+Setup Part 1
+------------------------
+Add JavaFX SDK Libraries
+------------------------
+Download the JavaFX 20 SDK for your machine (ie. Linux/Mac/Windows)
+	https://gluonhq.com/products/javafx/
+Open your downloads folder and extract the zipped file -> YOU NEED TO REMEMBER WHERE THIS IS!
+	(I would recommend in your Eclipse workspace folder, or your git/ICS4U folder)
+
+-----------------------
+Setting up in Eclipse
+-----------------------
+1.  Right click on your Project > Build Path > Configure Build Path...
+2.  Click on Libraries tab
+3.  If you see JavaFX select it and click Edit... jump to step 5, then 8 to locate the files on your computer
+	If you don't see JavaFX click Add Library...
+4.  Click User Library > Next 
+5.  Click on User Libraries...
+6.  Click New...
+7.  Enter "JavaFX" > do not check the box, click OK
+8.  Click Add External Jars
+9.  Locate and select all the jar files from JavaFX 20 lib folder
+10. Select Apply and Close, Finish, Apply and Close
+11. You should see the JavaFX library
+
+Setup Part 2
+-----------------------
+Setup Runtime Arguments
+-----------------------
+1.  Open main.java
+2.  Click on: 
+		Run > Run Configurations...
+3.  Click on tab
+		(x)=Arguments
+4.  In the box VM enter the following without quotes
+		"--module-path C:\path_to_your_javaFXsdk\lib --add-modules=javafx.controls"
+		where "path_to_your_javaFXsdk" is where you unzipped the JavaFX SDK on your computer.
+		
