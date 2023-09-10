@@ -28,32 +28,32 @@ import javafx.stage.Stage;
 public class OriginalGameApp extends Application{
 
 	/**
-	 * Buffer for double buffering.
-	 */
-	Image buffer;
-	/**
 	 * The number of balls on the screen.
 	 */
 	final int numBalls = 100;
-	/**
-	 * The pause between repainting (should be set for about 30 frames per
-	 * second).
-	 */
-	final int pauseDuration = 40;
+
 	/**
 	 * An array of balls.
 	 */
 	Ball[] ball = new Ball[numBalls];
 
+	/**
+	 * The maximum speed on the balls
+	 */
+	double maxBallSpeed = 8;
 
 	/**
-	 * 
+	 * Entry point to the application
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
 
+	/**
+	 * Where the look of the program is setup. Invoked automatically after init.
+	 * @param primaryStage The main window that opens on launch.
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("Flying Flashing Balls");
@@ -64,9 +64,9 @@ public class OriginalGameApp extends Application{
 
 		//create the balls for the game
 		for (int i = 0; i < numBalls; i++) {
-			ball[i] = new FlashingBall(50, 50, 0, (int)canvas.getWidth(), 0, (int)canvas.getHeight());
-			ball[i].setXSpeed(Math.random() * 16-8);
-			ball[i].setYSpeed(Math.random() * 16-8);
+			ball[i] = new FlashingBall((int)canvas.getWidth()/2, (int)canvas.getHeight()/2, 0, (int)canvas.getWidth(), 0, (int)canvas.getHeight());
+			ball[i].setXSpeed(Math.random() * (maxBallSpeed*2) - maxBallSpeed);
+			ball[i].setYSpeed(Math.random() * (maxBallSpeed*2) - maxBallSpeed);
 			ball[i].setColor(new Color( Math.random() , Math.random(), Math.random(), 1.0));
 		}
 
@@ -75,16 +75,12 @@ public class OriginalGameApp extends Application{
 			@Override
 			public void handle(long timestamp) {
 				
-				// Repaints the canvas periodically.
+				// Repaints the canvas.
 				draw(gc);
-				try {
-					Thread.sleep(pauseDuration);
-				} catch (InterruptedException e) {
-				}
 			}
 		};
 
-		mainPane.getChildren().add(canvas);
+		mainPane.getChildren().add(canvas); //gets the list of all the nodes for the mainPane and adds the canvas to the list
 		Scene scene = new Scene(mainPane);
 		primaryStage.setScene(scene);
 

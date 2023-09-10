@@ -75,6 +75,18 @@ public class ITunes {
 
 	}
 
+	//method 1 to validate input - try to get input, if there's an exception catch it
+//	boolean flag;
+//	do {
+//		flag = false;
+//		try{
+//			input = sc.nextInt();
+//		}catch (Exception e) {
+//			System.out.println("Please enter a number");
+//			flag = true;
+//		}
+//	}while(flag);
+
 	
 	//method 2 to validate input - check if there is an int before scanning the int
 //	boolean flag;

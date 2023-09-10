@@ -1,3 +1,5 @@
+package unit4ExampleCode;
+
 import javafx.application.Application;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;

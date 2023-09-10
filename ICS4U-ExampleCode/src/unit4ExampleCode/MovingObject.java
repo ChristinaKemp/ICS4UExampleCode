@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 
 /**
  * Superclass for a generic moving object. This class takes care of the x and y
- * location (should be the centre of the object), the x and y speed, the color,
+ * location (should be the center of the object), the x and y speed, the color,
  * and the top, bottom, left, and right edges of the screen. <br>
  * <br>
  * 
@@ -97,8 +97,7 @@ public abstract class MovingObject implements Runnable{
 	 * @param bottom
 	 *            Bottom edge for bouncing.
 	 */
-	public MovingObject(double x, double y, int left, int right, int top,
-			int bottom) {
+	public MovingObject(double x, double y, int left, int right, int top, int bottom) {
 		this.pauseDuration = 40;
 		this.xSpeed = 0;
 		this.ySpeed = 0;
