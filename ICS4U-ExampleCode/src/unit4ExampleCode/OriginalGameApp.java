@@ -35,7 +35,7 @@ public class OriginalGameApp extends Application{
 	/**
 	 * An array of balls.
 	 */
-	Ball[] ball = new Ball[numBalls];
+	Ball[] balls = new Ball[numBalls];
 
 	/**
 	 * The maximum speed on the balls
@@ -56,18 +56,20 @@ public class OriginalGameApp extends Application{
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		//setup the stage
 		primaryStage.setTitle("Flying Flashing Balls");
-		StackPane mainPane = new StackPane();
+		primaryStage.setResizable(false);		
+		
 		Canvas canvas = new Canvas(600, 600);
 		final GraphicsContext gc = canvas.getGraphicsContext2D();
 
 
 		//create the balls for the game
 		for (int i = 0; i < numBalls; i++) {
-			ball[i] = new FlashingBall((int)canvas.getWidth()/2, (int)canvas.getHeight()/2, 0, (int)canvas.getWidth(), 0, (int)canvas.getHeight());
-			ball[i].setXSpeed(Math.random() * (maxBallSpeed*2) - maxBallSpeed);
-			ball[i].setYSpeed(Math.random() * (maxBallSpeed*2) - maxBallSpeed);
-			ball[i].setColor(new Color( Math.random() , Math.random(), Math.random(), 1.0));
+			balls[i] = new FlashingBall((int)canvas.getWidth()/2, (int)canvas.getHeight()/2, 0, (int)canvas.getWidth(), 0, (int)canvas.getHeight());
+			balls[i].setXSpeed(Math.random() * (maxBallSpeed*2) - maxBallSpeed);
+			balls[i].setYSpeed(Math.random() * (maxBallSpeed*2) - maxBallSpeed);
+			balls[i].setColor(new Color( Math.random() , Math.random(), Math.random(), 1.0));
 		}
 
 		//creates a thread to run the game
@@ -80,19 +82,22 @@ public class OriginalGameApp extends Application{
 			}
 		};
 
+		//setup the layout for the scene
+		StackPane mainPane = new StackPane();
 		mainPane.getChildren().add(canvas); //gets the list of all the nodes for the mainPane and adds the canvas to the list
+		
 		Scene scene = new Scene(mainPane);
 		primaryStage.setScene(scene);
 
-		game.start();		
+		game.start(); //starts the AnimationTimer		
 		primaryStage.show();
 
 	}
 
 
-
 	/**
 	 * Clears the screen and paints the balls.
+	 * @param gc The GraphicContext that you want to draw on.
 	 */
 	public void draw(GraphicsContext gc) {
 		Platform.runLater(new Runnable() {
@@ -104,12 +109,22 @@ public class OriginalGameApp extends Application{
 				gc.fillRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
 				//draw objects
 				for (int i = 0; i < numBalls; i++) {
-					ball[i].draw(gc);
+					balls[i].draw(gc);
 				}
 			}
 
 		});
 	}
 
+	/**
+	 * This method gets called automatically whenever someone clicks the x to close the window or
+	 * when Platform.exit() is used in your program to end the application.
+	 * This stops all of the balls threads.
+	 */
+	public void stop() {
+		for(int i = 0; i < balls.length; i++) {
+			balls[i].stopThread();
+		}
+	}
 
 }
