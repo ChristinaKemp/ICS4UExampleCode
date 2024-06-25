@@ -52,6 +52,7 @@ public class Search {
 	 */
 	public static int binary(int[] arr, int target) {
 		//TODO write the binary search method
+		//https://www.youtube.com/watch?v=MFhxShGxHWc
 		return 0;
 	}
 

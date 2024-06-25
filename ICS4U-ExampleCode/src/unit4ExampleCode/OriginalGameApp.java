@@ -71,7 +71,7 @@ public class OriginalGameApp extends Application{
 		}
 
 		//creates a thread to run the game
-		AnimationTimer game = new AnimationTimer(){
+		AnimationTimer game = new AnimationTimer() {
 			@Override
 			public void handle(long timestamp) {
 				

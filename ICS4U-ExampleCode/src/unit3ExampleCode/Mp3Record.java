@@ -9,8 +9,8 @@ package unit3ExampleCode;
  */
 public class Mp3Record implements Comparable<Mp3Record> {
 
-	private String songTitle, artist, composer, album;
-	private double length;
+	private String songTitle, artist, composer, album, length;
+	private double bitRate;
 	private int year;
 	
 	/**
@@ -21,7 +21,7 @@ public class Mp3Record implements Comparable<Mp3Record> {
 		this.setArtist("");
 		this.setComposer("");
 		this.setAlbum("");
-		this.setLength(0);
+		this.setLength("0:00");
 		this.setYear(0);
 	}
 	
@@ -35,7 +35,7 @@ public class Mp3Record implements Comparable<Mp3Record> {
 		this.setArtist(artist);
 		this.setComposer("");
 		this.setAlbum("");
-		this.setLength(0);
+		this.setLength("0:00");
 		this.setYear(0);
 	}
 
@@ -90,7 +90,7 @@ public class Mp3Record implements Comparable<Mp3Record> {
 	 * This method returns the length of the given track.
 	 * @return Returns the length of the MP3 track.
 	 */
-	public double getLength() {
+	public String getLength() {
 		return length;
 	}
 	
@@ -98,7 +98,7 @@ public class Mp3Record implements Comparable<Mp3Record> {
 	 * Sets the length of the track.
 	 * @param length The length of the track in minutes and seconds.
 	 */
-	public void setLength(double length) {
+	public void setLength(String length) {
 		this.length = length;
 	}
 
@@ -136,13 +136,26 @@ public class Mp3Record implements Comparable<Mp3Record> {
 	}
 
 	/**
+	 * @return the bitRate
+	 */
+	public double getBitRate() {
+		return bitRate;
+	}
+
+	/**
+	 * @param bitRate the bitRate to set
+	 */
+	public void setBitRate(double bitRate) {
+		this.bitRate = bitRate;
+	}
+
+	/**
 	 * Returns a String object representing this Mp3Record's value. 
 	 * The result is a string consisting on the name of the song and
 	 * the artist, separated by a comma.
 	 */
 	public String toString() {
-		return songTitle + ", " + artist + "\n"
-				+ length + "\n";
+		return "[" + songTitle + ", " + artist + ", " + length + ", " + year + "]";
 	}
 
 
@@ -162,6 +175,8 @@ public class Mp3Record implements Comparable<Mp3Record> {
 
 			
 	}
+
+
 
 
 	

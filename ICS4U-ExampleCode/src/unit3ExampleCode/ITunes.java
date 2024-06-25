@@ -42,7 +42,7 @@ public class ITunes {
 			if(input == 1) {
 				song = createRecord();
 			}else if (input == 2) {
-				System.out.println(song.toString());
+				printRecord(song);
 			}
 			else if(input != 10) {
 				System.out.println("That option is invalid, please try again.");
@@ -53,6 +53,13 @@ public class ITunes {
 	}
 
 	
+	private static void printRecord(Mp3Record song) {
+		System.out.println(song.getSongTitle() + ", " + song.getArtist()  + 
+				"\n" + song.getLength() + " mins\t" + song.getYear() + "\n");
+		
+	}
+
+
 	/**
 	 * Creates a new record and sets the name to "Yesterday",
 	 * the artist to "Beatles", the composer to "Paul McCartney",
@@ -61,15 +68,23 @@ public class ITunes {
 	 */
 	public static Mp3Record createRecord() {
 		
-		Mp3Record r = new Mp3Record("Yesterday", "The Beatles");
+		Mp3Record r = new Mp3Record();
+		
+		System.out.println("What is the name of the song?");
+		String song = sc.nextLine();
+		r.setSongTitle(song);
+		
+		System.out.println("Who is the artist?");
+		String artist = sc.nextLine();
+		r.setArtist(artist);
 		
 		System.out.println("What is the length of the song?");
-		double length = Double.parseDouble(sc.nextLine());
+		String length = sc.nextLine();
 		r.setLength(length);
-
-		r.setComposer("Paul McCartney");
 		
-		r.setYear(1965);
+		System.out.println("What year was it recorded?");
+		int year = Integer.parseInt(sc.nextLine());
+		r.setYear(year);
 		
 		return r;
 
