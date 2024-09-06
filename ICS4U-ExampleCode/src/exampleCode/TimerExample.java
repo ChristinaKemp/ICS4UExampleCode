@@ -2,6 +2,9 @@ package exampleCode;
 import java.util.Timer;
 import java.util.TimerTask;
 
+//This is a simple example of a task that will run every second
+//You can also use Timeline, or AnimationTimer classes when dealing with UI in JavaFX
+
 public class TimerExample {
 	
 
