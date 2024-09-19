@@ -3,7 +3,6 @@
  */
 package unit2StarterCode;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**

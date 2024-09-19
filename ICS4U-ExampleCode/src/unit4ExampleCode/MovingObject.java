@@ -1,6 +1,5 @@
 package unit4ExampleCode;
 
-import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -34,6 +33,10 @@ import javafx.scene.paint.Color;
  */
 public abstract class MovingObject implements Runnable{
 
+	/**
+	 * The colour of the object.
+	 */
+	Color colour;
 	/**
 	 * The x location of the object.
 	 */
@@ -72,10 +75,6 @@ public abstract class MovingObject implements Runnable{
 	 */
 	int pauseDuration;
 	/**
-	 * Object color (defaults to black)
-	 */
-	Color color;
-	/**
 	 * Set to false to stop the thread.
 	 */
 	boolean moving;
@@ -84,24 +83,18 @@ public abstract class MovingObject implements Runnable{
 	 * Sets default color and pauseDuration values. Sets speed to 0. Starts
 	 * thread. Every subclass of MovingObject must use this constructor.
 	 * 
-	 * @param x
-	 *            Initial x position.
-	 * @param y
-	 *            Initial y position.
-	 * @param left
-	 *            Left edge for bouncing.
-	 * @param right
-	 *            Right edge for bouncing.
-	 * @param top
-	 *            Top edge for bouncing.
-	 * @param bottom
-	 *            Bottom edge for bouncing.
+	 * @param x Initial x position.
+	 * @param y Initial y position.
+	 * @param left Left edge for bouncing.
+	 * @param right Right edge for bouncing.
+	 * @param top Top edge for bouncing.
+	 * @param bottom Bottom edge for bouncing.
 	 */
 	public MovingObject(double x, double y, int left, int right, int top, int bottom) {
+		super();
 		this.pauseDuration = 40;
 		this.xSpeed = 0;
 		this.ySpeed = 0;
-		this.color = Color.BLACK;
 		this.x = x;
 		this.y = y;
 		this.left = left;
@@ -151,9 +144,7 @@ public abstract class MovingObject implements Runnable{
 
 	/**
 	 * Draws the object.
-	 * 
-	 * @param g
-	 *            The graphics context
+	 * @param g The graphics context
 	 */
 	abstract public void draw(GraphicsContext gc);
 
@@ -164,9 +155,7 @@ public abstract class MovingObject implements Runnable{
 	
 	/**
 	 * Sets the x speed.
-	 * 
-	 * @param xSpeed
-	 *            New x speed.
+	 * @param xSpeed New x speed.
 	 */
 	public void setXSpeed(double xSpeed) {
 		this.xSpeed = xSpeed;
@@ -174,9 +163,7 @@ public abstract class MovingObject implements Runnable{
 
 	/**
 	 * Sets the y speed.
-	 * 
-	 * @param ySpeed
-	 *            New y speed.
+	 * @param ySpeed New y speed.
 	 */
 	public void setYSpeed(double ySpeed) {
 		this.ySpeed = ySpeed;
@@ -184,31 +171,33 @@ public abstract class MovingObject implements Runnable{
 
 	/**
 	 * Sets the x location.
-	 * 
-	 * @param x
-	 *            New x location.
+	 * @param x New x location.
 	 */
 	public void setX(int x) {
 		this.x = x;
 	}
 
 	/**
-	 * Sets the y location.
-	 * 
-	 * @param y
-	 *            New y location.
+	 * Sets the y location. 
+	 * @param y New y location.
 	 */
 	public void setY(int y) {
 		this.y = y;
 	}
 
 	/**
-	 * Sets color of object.
-	 * 
-	 * @param color
-	 *            New color.
+	 * Sets color of object.	 * 
+	 * @param color New color.
 	 */
 	public void setColor(Color color) {
-		this.color = color;
+		this.colour=color;
+	}
+	
+	/**
+	 * Returns the colour of the object
+	 * @return The color of the object.
+	 */
+	public Color getColor() {
+		return colour;
 	}
 }

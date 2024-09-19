@@ -6,14 +6,16 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
- * This is the beginning of a simple game. You should expand it into a dodgeball
- * game, where the user controls an object with the mouse or keyboard, and tries
+ * This is the beginning of a simple game. The program creates 100 FlashingBall
+ * objects with random colours and speeds. The balls are drawn onto a JavaFX canvas.
+ * 
+ * Your task is to expand this starter code into a dodgeball game 
+ * where the user controls an object with the mouse or keyboard and tries
  * to avoid the balls flying around the screen. If they get hit, it's game over.
  * If they survive for 20 seconds (or some other fixed time), they go on to the
  * next level. <br>
@@ -24,7 +26,6 @@ import javafx.stage.Stage;
  * 
  * @author Sam Scott
  */
-@SuppressWarnings("serial")
 public class OriginalGameApp extends Application{
 
 	/**
